@@ -44,20 +44,26 @@ df_selected['Average_Growth_Rate'] = df_selected.iloc[:, 1:-1].mean(axis=1).pct_
 # Compute the total population for each year
 df_selected['Total_Population'] = df_selected.iloc[:, 1:].sum(axis=1)
 
-# Line plot of population over the years
+# Bar plot of population over the years
 plt.figure(figsize=(10, 6))
-plt.plot(df_selected['year_1960'], df_selected['Total_Population'])
+years = df_selected.columns[1:-2]
+total_population = df_selected[years].sum()
+plt.bar(years, total_population)
 plt.xlabel('Year')
-plt.ylabel('Total Population')
-plt.title('World Population Over the Years')
+plt.ylabel('Population')
+plt.title('Population Over the Years')
+plt.xticks(rotation='vertical')
 plt.show()
 
-# Line plot of average population growth rate over the years
+# Line chart of average population over the years
 plt.figure(figsize=(10, 6))
-plt.plot(df_selected['year_1960'], df_selected['Average_Growth_Rate'])
+years = df_selected.columns[1:-2]
+average_population = df_selected[years].mean()
+plt.plot(years, average_population, marker='o')
 plt.xlabel('Year')
-plt.ylabel('Average Growth Rate (%)')
-plt.title('Average Population Growth Rate Over the Years')
+plt.ylabel('Average Population')
+plt.title('Average Population Over the Years')
+plt.xticks(rotation='vertical')
 plt.show()
 
 # Bar plot of top 10 countries by population in 2020
@@ -71,8 +77,8 @@ plt.title('Top 10 Countries by Population in 2020')
 plt.show()
 ```
 ## OUTPUT
-![image](https://github.com/Siddarthan999/Ex-10-Data-Science-Process-on-Complex-Dataset/assets/91734840/5ff36765-6e47-4542-bd0d-66c303de103c)
-![image](https://github.com/Siddarthan999/Ex-10-Data-Science-Process-on-Complex-Dataset/assets/91734840/886a43c7-c69f-4b7e-9750-5e57c00137f4)
+![image](https://github.com/Siddarthan999/Ex-10-Data-Science-Process-on-Complex-Dataset/assets/91734840/866848dd-ee18-4aae-a4a9-685fba21a129)
+![image](https://github.com/Siddarthan999/Ex-10-Data-Science-Process-on-Complex-Dataset/assets/91734840/3ef61c01-064c-40db-a8dc-297e7076089c)
 ![image](https://github.com/Siddarthan999/Ex-10-Data-Science-Process-on-Complex-Dataset/assets/91734840/97515ce7-1d81-4dec-84c6-3c7226fb45dc)
 
 ## RESULT
